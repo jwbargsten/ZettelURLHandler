@@ -16,9 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let configuration = NSWorkspace.OpenConfiguration()
     configuration.createsNewApplicationInstance = true
     print(urls)
-    guard let zloc = urls.first.flatMap({ extractZettelLocation(url: $0) }) else { return }
+    guard let (kasten, zid) = urls.first.flatMap({ extractZettelLocation(url: $0) }) else { return }
 
-    let (kasten, zid) = zloc
     guard let zhome = conf.kasten[kasten] else { return }
 
     let zettelAbs = "\(zhome)/docs/\(zid).md"

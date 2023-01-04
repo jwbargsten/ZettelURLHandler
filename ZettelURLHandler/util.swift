@@ -14,7 +14,9 @@ public func extractZettelLocation(url: URL) -> (String, String)? {
   let host = url.host
   let parts = url.pathComponents
   if parts.count == 2, parts.first == "/", parts.last?.contains(validNameRegex) ?? false,
-     host?.contains(validNameRegex) ?? false
+     host?.contains(validNameRegex) ?? false,
+     host?.count ?? 1 < 256,
+     parts.last?.count ?? 1 < 256
   {
     return (host ?? "", parts.last ?? "")
   }
