@@ -18,12 +18,24 @@ final class ZettelURLHandlerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test1() throws {
+        let actual = URL(string: "zettel://abc/def").flatMap{extractZettelLocation(url:$0 )}!
+        XCTAssertEqual(actual.0, "abc")
+        XCTAssertEqual(actual.1, "def")
+    }
+    
+    func test2() throws {
+        XCTAssertNil(extractZettelLocation(url: URL(string: "zettel:///abc/def/ghi")!))
+        XCTAssertNil(extractZettelLocation(url: URL(string: "zettel://abc/..")!))
+       XCTAssertNil(extractZettelLocation(url: URL(string: "zettel://&/a")!))
+        XCTAssertNil(extractZettelLocation(url: URL(string: "zettel:///")!))
+        XCTAssertNil(extractZettelLocation(url: URL(string: "zettel://")!))
+        XCTAssertNil(extractZettelLocation(url: URL(string: "zettel://a/a=b")!))
+        XCTAssertNil(extractZettelLocation(url: URL(string: "abc/def")!))
+    }
+    
+    func test3() throws {
+        XCTAssertEqual(try? getConfigFilePath(), URL(filePath: "/Users/jwb/.config/zettel.yaml"))
     }
 
     func testPerformanceExample() throws {

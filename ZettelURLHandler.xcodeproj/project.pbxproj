@@ -14,6 +14,9 @@
 		CF54FA8A2965A4B5008D321B /* ZettelURLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54FA892965A4B5008D321B /* ZettelURLHandlerTests.swift */; };
 		CF54FA942965A4B5008D321B /* ZettelURLHandlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54FA932965A4B5008D321B /* ZettelURLHandlerUITests.swift */; };
 		CF54FA962965A4B5008D321B /* ZettelURLHandlerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54FA952965A4B5008D321B /* ZettelURLHandlerUITestsLaunchTests.swift */; };
+		CF54FAA32965A4D3008D321B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54FAA22965A4D3008D321B /* main.swift */; };
+		CF54FAA52965A598008D321B /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54FAA42965A598008D321B /* util.swift */; };
+		CF54FAA92965BF5D008D321B /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = CF54FAA82965BF5D008D321B /* Yams */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		CF54FA8F2965A4B5008D321B /* ZettelURLHandlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZettelURLHandlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF54FA932965A4B5008D321B /* ZettelURLHandlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelURLHandlerUITests.swift; sourceTree = "<group>"; };
 		CF54FA952965A4B5008D321B /* ZettelURLHandlerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelURLHandlerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CF54FAA22965A4D3008D321B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CF54FAA42965A598008D321B /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		CF54FAA62965B3AF008D321B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF54FAA92965BF5D008D321B /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +102,14 @@
 		CF54FA762965A4B4008D321B /* ZettelURLHandler */ = {
 			isa = PBXGroup;
 			children = (
+				CF54FAA62965B3AF008D321B /* Info.plist */,
 				CF54FA772965A4B4008D321B /* ZettelURLHandlerApp.swift */,
 				CF54FA792965A4B4008D321B /* ContentView.swift */,
 				CF54FA7B2965A4B5008D321B /* Assets.xcassets */,
 				CF54FA802965A4B5008D321B /* ZettelURLHandler.entitlements */,
 				CF54FA7D2965A4B5008D321B /* Preview Content */,
+				CF54FAA22965A4D3008D321B /* main.swift */,
+				CF54FAA42965A598008D321B /* util.swift */,
 			);
 			path = ZettelURLHandler;
 			sourceTree = "<group>";
@@ -145,6 +155,9 @@
 			dependencies = (
 			);
 			name = ZettelURLHandler;
+			packageProductDependencies = (
+				CF54FAA82965BF5D008D321B /* Yams */,
+			);
 			productName = ZettelURLHandler;
 			productReference = CF54FA742965A4B4008D321B /* ZettelURLHandler.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +230,9 @@
 				Base,
 			);
 			mainGroup = CF54FA6B2965A4B4008D321B;
+			packageReferences = (
+				CF54FAA72965BF5D008D321B /* XCRemoteSwiftPackageReference "Yams" */,
+			);
 			productRefGroup = CF54FA752965A4B4008D321B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +277,8 @@
 			files = (
 				CF54FA7A2965A4B4008D321B /* ContentView.swift in Sources */,
 				CF54FA782965A4B4008D321B /* ZettelURLHandlerApp.swift in Sources */,
+				CF54FAA32965A4D3008D321B /* main.swift in Sources */,
+				CF54FAA52965A598008D321B /* util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -401,6 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -422,6 +442,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelURLHandler/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZettelURLHandler/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,6 +468,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelURLHandler/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZettelURLHandler/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +590,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF54FAA72965BF5D008D321B /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF54FAA82965BF5D008D321B /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF54FAA72965BF5D008D321B /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF54FA6C2965A4B4008D321B /* Project object */;
 }
