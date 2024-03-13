@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let zettelAbs = "\(zhome)/docs/\(zid).md"
 
     configuration.arguments = ["-e", conf.nvim, zettelAbs]
+      configuration.environment = ["ZETTEL_HOME": zhome, "ZETTEL_BASE_URL": "http://localhost:8001/\(kasten)"]
     NSWorkspace.shared.openApplication(at: url, configuration: configuration, completionHandler: nil)
   }
 }
